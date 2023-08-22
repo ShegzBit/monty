@@ -22,9 +22,7 @@ typedef struct stack_s
 } stack_t;
 
 /*Type definitions*/
-typedef stack_t *st_node;
-typedef void (*f)(stack_t **stack, unsigned int line_number) func_op;
-
+typedef void (*func_op)(stack_t **stack, unsigned int line_number);
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -38,7 +36,5 @@ typedef struct instruction_s
         char *opcode;
         func_op opfunc;
 } instruction_t;
-
-extern st_node _stack = NULL; /*Main stack for the whole interpreter's operation*/
 
 #endif /*_MONTY_H_*/
