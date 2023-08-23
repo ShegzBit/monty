@@ -1,6 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
 
+char *_strdup(char *str);
+
 /*Contains utility functions for efficient and sufficient use of opfuncs*/
 
 /**
@@ -47,7 +49,7 @@ char **split_string(char *str, char *delim)
 	if (arr == NULL)
 		return (NULL);
 
-	new_str = strdup(str);
+	new_str = _strdup(str);
 	arr[i++] = strtok(new_str, delim);
 	while (i < word_count && arr[i - 1] != NULL)
 		arr[i++] = strtok(NULL, delim);
@@ -68,11 +70,11 @@ void _free(char **arr)
  */
 int _execute(stack_t **_stack, FILE *fs)
 {
-	size_t read_byte, i = 0, size = 0, word_count;
+	size_t read_byte, i = 0, size = 0, word_count, minus_one = -1;
 	char *lineptr = NULL, **arr;
 	func_op op_handler;
 
-	while ((read_byte = getline(&lineptr, &size, fs)) != -1)
+	while ((read_byte = getline(&lineptr, &size, fs)) != minus_one)
 	{
 		word_count = count_word(lineptr);
 		arr = split_string(lineptr, " \n");
