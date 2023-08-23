@@ -89,6 +89,8 @@ int _execute(stack_t **_stack, FILE *fs)
 			data = atoi(arr[1]);
 		op_handler(_stack, ++i);
 		_free(arr);
+		free(lineptr);
+		lineptr = NULL;
 	}
 	free(lineptr);
 	return (0);
