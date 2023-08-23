@@ -4,7 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <string.h>
 
+
+/*External variable for data*/
+extern int data;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -23,6 +27,11 @@ typedef struct stack_s
 
 /*Type definitions*/
 typedef void (*func_op)(stack_t **stack, unsigned int line_number);
+
+/*Op Handlers*/
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -36,5 +45,12 @@ typedef struct instruction_s
         char *opcode;
         func_op opfunc;
 } instruction_t;
+
+/*Utility functions*/
+int count_word(char *str);
+char **split_string(char *str, char *delim);
+int _execute(stack_t **_stack, FILE *fs);
+func_op get_op(char *opcode);
+void free_list(stack_t *stack);
 
 #endif /*_MONTY_H_*/

@@ -8,13 +8,13 @@
 func_op get_op(char *opcode)
 {
 	instruction_t handlers[] = {
-		{"pall", pall}
+		{"pall", pall},
 		{"push", push},
 		{NULL, NULL}
 	};
 	int i;
 
-	for (i = 0; handlers[i]; i++)
+	for (i = 0; handlers[i].opcode != NULL; i++)
 		if ((strcmp(handlers[i].opcode, opcode) == 0))
 			return (handlers[i].opfunc);
 	return (NULL);
