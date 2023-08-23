@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	/*Check for invalid arguments*/
 	if (ac != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -26,10 +26,11 @@ int main(int ac, char **av)
 	/*Check cannot open file filename*/
 	if (fs == NULL)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	_execute(&_stack, fs);
 	free_list(_stack);
+	fclose(fs);
 	return (0);
 }

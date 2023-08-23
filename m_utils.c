@@ -54,7 +54,10 @@ char **split_string(char *str, char *delim)
 	return (arr);
 }
 
-
+/**
+ * _free - frees a strtok arr
+ *@arr: array to free
+ */
 void _free(char **arr)
 {
 	free(*arr);

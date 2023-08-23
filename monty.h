@@ -31,6 +31,7 @@ typedef void (*func_op)(stack_t **stack, unsigned int line_number);
 /*Op Handlers*/
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
