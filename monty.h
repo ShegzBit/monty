@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 
+#define BUFFER_SIZE 1024
 
 /*External variable for data*/
 extern int data;
@@ -56,9 +57,9 @@ void free_list(stack_t *stack);
 void _free(char **arr);
 
 /*op-stack error handlers*/
-void pint_error(stack_t *stack, char *lineptr, char **arr,
+void pint_error(stack_t *stack, char **arr,
 		int line_number, FILE *fs);
-int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
+int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/

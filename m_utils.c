@@ -8,7 +8,7 @@ int _execute(stack_t **_stack, FILE *fs);
 int count_word(char *str);
 char **split_string(char *str, char *delim);
 void _free(char **arr);
-int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
+int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs);
 
 /**
@@ -78,13 +78,11 @@ void _free(char **arr)
  * @opcode: opcode to search for
  * Return: 0 on executable | -1 otherwise
  */
-int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
+int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs)
 {
-	int i;
-
 	if ((strcmp(opcode, "pint") == 0) && stack == NULL)
-		pint_error(stack, lineptr, arr, line_number, fs);
+		pint_error(stack, arr, line_number, fs);
 
 	return (0);
 
@@ -97,22 +95,21 @@ int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
  */
 int _execute(stack_t **_stack, FILE *fs)
 {
-	size_t read_byte, i = 1, size = 0, word_count;
-	char *lineptr = NULL, **arr;
+	size_t i = 1, word_count;
+	char lineptr[BUFFER_SIZE], **arr;
 	func_op op_handler;
 
-	while ((read_byte = getline(&lineptr, &size, fs)) != minus_one)
+	while (fgets(lineptr, sizeof(lineptr), fs) != NULL)
 	{
 		word_count = count_word(lineptr);
 		arr = split_string(lineptr, " \n");
 		/*Extern int data in .h file*/
-		stack_error(*_stack, arr[0], lineptr, arr, i, fs);
+		stack_error(*_stack, arr[0], arr, i, fs);
 		op_handler = get_op(arr[0]);
 		if (op_handler == NULL)
 		{
 			fprintf(stderr, "L<%ld>: unknown instruction <%s>\n", i, arr[0]);
 			_free(arr);
-			free(lineptr);
 			return (-1);
 		}
 		/*Extern int data in .h file*/
@@ -120,9 +117,6 @@ int _execute(stack_t **_stack, FILE *fs)
 			data = atoi(arr[1]);
 		op_handler(_stack, i++);
 		_free(arr);
-		free(lineptr);
-		lineptr = NULL;
 	}
-	free(lineptr);
 	return (0);
 }
