@@ -31,6 +31,7 @@ typedef void (*func_op)(stack_t **stack, unsigned int line_number);
 /*Op Handlers*/
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
@@ -52,5 +53,12 @@ char **split_string(char *str, char *delim);
 int _execute(stack_t **_stack, FILE *fs);
 func_op get_op(char *opcode);
 void free_list(stack_t *stack);
+void _free(char **arr);
+
+/*op-stack error handlers*/
+void pint_error(stack_t *stack, char *lineptr, char **arr,
+		int line_number, FILE *fs);
+int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
+		int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/

@@ -8,6 +8,7 @@
 func_op get_op(char *opcode)
 {
 	instruction_t handlers[] = {
+		{"pint", pint},
 		{"pall", pall},
 		{"push", push},
 		{NULL, NULL}
