@@ -1,5 +1,7 @@
 #include "monty.h"
 
+func_op get_op(char *opcode);
+
 /**
  * get_op - gets the right op handler for instruction
  * @opcode: instruction to carry out
@@ -8,6 +10,7 @@
 func_op get_op(char *opcode)
 {
 	instruction_t handlers[] = {
+		{"swap", swap},
 		{"pint", pint},
 		{"pall", pall},
 		{"push", push},

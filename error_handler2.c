@@ -1,5 +1,7 @@
 #include "monty.h"
 
+void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+
 /**
  * pop_error - handles pop error
  * @stack: stack (double linked list)

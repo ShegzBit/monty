@@ -76,15 +76,20 @@ void _free(char **arr)
  * stack_error - check the stack for sufficient number of element
  * @stack: stack to work on
  * @opcode: opcode to search for
+ * @arr: arr used in _execute to be freed before exit
+ * @line_number: line number on which error was spotted
+ * @fs: file opcodes were read from
  * Return: 0 on executable | -1 otherwise
  */
 int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs)
 {
-	if ((strcmp(opcode, "pint") == 0) && stack == NULL)
+	if ((strcmp(opcode, "pint") == 0) && list_len(stack) == 0)
 		pint_error(stack, arr, line_number, fs);
-	else if ((strcmp(opcode, "pop") == 0) && stack == NULL)
+	if ((strcmp(opcode, "pop") == 0) && list_len(stack) == 0)
 		pop_error(stack, arr, line_number, fs);
+	if ((strcmp(opcode, "swap") == 0) && list_len(stack) < 2)
+		swap_error(stack, arr, line_number, fs);
 
 	return (0);
 
