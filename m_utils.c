@@ -83,6 +83,8 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 {
 	if ((strcmp(opcode, "pint") == 0) && stack == NULL)
 		pint_error(stack, arr, line_number, fs);
+	else if ((strcmp(opcode, "pop") == 0) && stack == NULL)
+		pop_error(stack, arr, line_number, fs);
 
 	return (0);
 

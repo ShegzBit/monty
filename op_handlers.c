@@ -37,7 +37,6 @@ void pall(stack_t **stack, unsigned int line_number)
 		temp->prev = temp;
 		temp = temp->next;
 	}
-	free(temp);
 }
 
 /**

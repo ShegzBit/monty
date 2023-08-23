@@ -33,6 +33,7 @@ typedef void (*func_op)(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
@@ -61,5 +62,6 @@ void pint_error(stack_t *stack, char **arr,
 		int line_number, FILE *fs);
 int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs);
+void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/
