@@ -53,5 +53,12 @@ char **split_string(char *str, char *delim);
 int _execute(stack_t **_stack, FILE *fs);
 func_op get_op(char *opcode);
 void free_list(stack_t *stack);
+void _free(char **arr);
+
+/*op-stack error handlers*/
+void pint_error(stack_t *stack, char *lineptr, char **arr,
+		int line_number, FILE *fs);
+int stack_error(stack_t *stack, char *opcode, char *lineptr, char **arr,
+		int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/
