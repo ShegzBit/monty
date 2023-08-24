@@ -80,6 +80,8 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 		mod_error(stack, arr, line_number, fs);
 	else if ((strcmp(opcode, "push") == 0))
 		push_error(stack, arr, line_number, fs);
+	else if ((strcmp(opcode, "pchar") == 0))
+		pchar_error(stack, arr, line_number, fs);
 
 	return (0);
 
