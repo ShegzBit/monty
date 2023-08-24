@@ -61,7 +61,14 @@ void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 	fclose(fs);
 	exit(EXIT_FAILURE);
 }
-
+/**
+ * mul_error - handles stack error on mul if
+ * stack too short
+ * @stack: stack to operate on
+ * @arr: arr used in other function to be freed before exit
+ * @line_number: line on which the error was found
+ * @fs: monty byte code file where opcodes were read from
+ */
 void mul_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {
 	fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
