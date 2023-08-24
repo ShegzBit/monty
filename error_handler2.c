@@ -117,7 +117,7 @@ void pchar_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {
 	if (stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		_free(arr);
 		free_list(stack);
 		fclose(fs);
