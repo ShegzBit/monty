@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
-	/*int i;*/
+
 	(void)line_number;
 	if (stack == NULL || *stack == NULL)
 		return;
@@ -70,6 +70,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	int store;
 
+	(void)line_number;
 	(*stack) = (*stack)->next;
 	store = temp->n;
 	temp->n = (*stack)->n;
@@ -87,6 +88,7 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	int store;
 
+	(void)line_number;
 	store = (*stack)->n + (*stack)->next->n;
 	pop(stack, line_number);
 	(*stack)->n = store;

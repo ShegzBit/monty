@@ -46,7 +46,7 @@ int count_word(char *str)
 char **split_string(char *str, char *delim)
 {
 	int word_count = count_word(str), i = 0;
-	char **arr, *temp;
+	char **arr;
 
 	if (str == NULL || delim == NULL)
 		return (NULL);
