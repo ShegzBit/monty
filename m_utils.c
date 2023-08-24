@@ -67,6 +67,15 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 		add_error(stack, arr, line_number, fs);
 	else if ((strcmp(opcode, "sub") == 0) && list_len(stack) < 2)
 		sub_error(stack, arr, line_number, fs);
+	else if (strcmp(opcode, "div") == 0)
+	{
+		if (list_len(stack) < 2)
+			_div_error(stack, arr, line_number, fs);
+		else if (list_len(stack) >= 2 && (stack->n == 0))
+			zero_error(stack, arr, line_number, fs);
+	}
+	else if ((strcmp(opcode, "mul") == 0) && list_len(stack) < 2)
+		mul_error(stack, arr, line_number, fs);
 	else if ((strcmp(opcode, "mod") == 0))
 		mod_error(stack, arr, line_number, fs);
 	else if ((strcmp(opcode, "push") == 0))

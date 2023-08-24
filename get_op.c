@@ -10,6 +10,8 @@ func_op get_op(char *opcode);
 func_op get_op(char *opcode)
 {
 	instruction_t handlers[] = {
+		{"mul", mul},
+		{"div", _div},
 		{"add", add},
 		{"swap", swap},
 		{"pint", pint},

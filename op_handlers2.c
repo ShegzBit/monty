@@ -3,6 +3,8 @@
 void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 
 /**
@@ -20,7 +22,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next != NULL)
 	{
 		*stack = (*stack)->next;
-		tmp->next->prev = NULL;
+		(*stack)->prev = NULL;
 		free(tmp);
 	}
 	else
@@ -57,6 +59,42 @@ void sub(stack_t **stack, unsigned int line_number)
 	(*stack)->n = store;
 }
 
+/**
+ * _div - divides the second element of the stack
+ * by the top element of the stack.
+ * the stack pop the first and assign the value to the second
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void _div(stack_t **stack, unsigned int line_number)
+{
+	int div;
+	stack_t *temp = *stack;
+
+	(*stack) = (*stack)->next;
+	div = (*stack)->n / temp->n;
+	*stack = temp;
+	pop(stack, line_number);
+	(*stack)->n = div;
+}
+
+/**
+ * mul - multiplies the second element of the stack
+ * by the top element of the stack.
+ * the stack pop the first and assign the value to the second
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	int mul;
+	stack_t *temp = *stack;
+
+	(*stack) = (*stack)->next;
+	mul = (*stack)->n * temp->n;
+	*stack = temp;
+	pop(stack, line_number);
+	(*stack)->n = mul;
 /**
  * mod - computes the rest of the division of the second top
  * element of the stack by the top element of the stack.

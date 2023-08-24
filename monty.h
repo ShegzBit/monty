@@ -38,6 +38,8 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 
 /**
@@ -79,6 +81,9 @@ void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void _div_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void zero_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void mul_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void mod_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void push_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 

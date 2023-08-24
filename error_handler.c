@@ -3,6 +3,8 @@
 void pint_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void _div_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void zero_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 /**
  * pint_error - handles error on stack for pint
@@ -48,6 +50,40 @@ void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {
 	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+	_free(arr);
+	free_list(stack);
+	fclose(fs);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * _div_error - handles stack error on div
+ * stack too short
+ * @stack: stack to operate on
+ * @arr: arr used in other function to be freed before exit
+ * @line_number: line on which the error was found
+ * @fs: monty byte code file where opcodes were read from
+ */
+void _div_error(stack_t *stack, char **arr, int line_number, FILE *fs)
+{
+	fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+	_free(arr);
+	free_list(stack);
+	fclose(fs);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * zero_error - handles stack error on div
+ * dividing by zero
+ * @stack: stack to operate on
+ * @arr: arr used in other function to be freed before exit
+ * @line_number: line on which the error was found
+ * @fs: monty byte code file where opcodes were read from
+ */
+void zero_error(stack_t *stack, char **arr, int line_number, FILE *fs)
+{
+	fprintf(stderr, "L%d: division by zero\n", line_number);
 	_free(arr);
 	free_list(stack);
 	fclose(fs);
