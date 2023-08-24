@@ -5,6 +5,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 /**
  * pop - removes an element from top of stack
@@ -45,15 +46,14 @@ void nop(stack_t **stack, unsigned int line_number)
 /**
  * sub - subtracts the top element of the stack from the
  * second top element of the stack.
- * the stack pop the first and assign the sum to the second
  * @stack: stack to work with
  * @line_number: line number of file being executed
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
 	int store;
-
 	(void)line_number;
+
 	store = (*stack)->next->n - (*stack)->n;
 	pop(stack, line_number);
 	(*stack)->n = store;
@@ -95,4 +95,18 @@ void mul(stack_t **stack, unsigned int line_number)
 	*stack = temp;
 	pop(stack, line_number);
 	(*stack)->n = mul;
+/**
+ * mod - computes the rest of the division of the second top
+ * element of the stack by the top element of the stack.
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void mod(stack_t **stack, unsigned int line_number)
+{
+	int store;
+	(void)line_number;
+
+	store = (*stack)->next->n % (*stack)->n;
+	pop(stack, line_number);
+	(*stack)->n = store;
 }
