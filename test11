@@ -1,0 +1,7 @@
+push 0
+pall
+div
+pall
+pop
+pall
+swap
