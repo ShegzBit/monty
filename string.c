@@ -4,7 +4,7 @@ char *_strdup(char *str);
 /* contains helper string functions */
 char *_strdup(char *str);
 int word_count(char *buffer, const char *delim);
-char **string_split(char *str, char *delim);
+char **_string_split(char *str, char *delim);
 
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
@@ -70,7 +70,7 @@ int word_count(char *buffer, const char *delim)
 }
 
 /**
- * string_split - splits a string into an array of words
+ * _string_split - splits a string into an array of words
  * @str: str to split
  * @delim: delimiter at which to split str
  * Return: Array of string | NULL for str = NULL

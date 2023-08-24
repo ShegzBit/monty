@@ -7,10 +7,10 @@ void free_all(char **arr);
 
 
 /**
- * free_list - frees a doubly linked list (stack)
+ * _free_list - frees a doubly linked list (stack)
  * @stack: doubly linked list
  */
-void free_list(stack_t *stack)
+void _free_list(stack_t *stack)
 {
 	stack_t *temp = stack;
 
