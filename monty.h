@@ -38,6 +38,7 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
@@ -67,6 +68,8 @@ char **string_split(char *str, char *delim);
 char **_string_split(char *str, char *delim);
 void free_all(char **arr);
 void free_to_index(char **arr, int i);
+int handle_comment(char *str);
+int is_int(char *str);
 
 /*op-stack error handlers*/
 void pint_error(stack_t *stack, char **arr,int line_number, FILE *fs);
@@ -76,5 +79,7 @@ void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void mod_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void push_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/

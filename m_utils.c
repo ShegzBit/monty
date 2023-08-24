@@ -67,6 +67,10 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 		add_error(stack, arr, line_number, fs);
 	else if ((strcmp(opcode, "sub") == 0) && list_len(stack) < 2)
 		sub_error(stack, arr, line_number, fs);
+	else if ((strcmp(opcode, "mod") == 0))
+		mod_error(stack, arr, line_number, fs);
+	else if ((strcmp(opcode, "push") == 0))
+		push_error(stack, arr, line_number, fs);
 
 	return (0);
 
@@ -93,11 +97,13 @@ int _execute(stack_t **_stack, FILE *fs)
 		if (!arr)
 			continue;
 		/*Extern int data in .h file*/
+		if (handle_comment(arr[0]))
+			continue;
 		stack_error(*_stack, arr[0], arr, i, fs);
 		op_handler = get_op(arr[0]);
 		if (op_handler == NULL)
 		{
-			fprintf(stderr, "L<%ld>: unknown instruction <%s>\n", i, arr[0]);
+			fprintf(stderr, "L%ld: unknown instruction %s\n", i, arr[0]);
 			free_all(arr);
 			return (-1);
 		}
