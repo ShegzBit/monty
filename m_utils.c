@@ -59,12 +59,14 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 {
 	if ((strcmp(opcode, "pint") == 0) && stack == NULL)
 		pint_error(stack, arr, line_number, fs);
-	if ((strcmp(opcode, "pop") == 0) && stack == NULL)
+	else if ((strcmp(opcode, "pop") == 0) && stack == NULL)
 		pop_error(stack, arr, line_number, fs);
-	if ((strcmp(opcode, "swap") == 0) && list_len(stack) < 2)
+	else if ((strcmp(opcode, "swap") == 0) && list_len(stack) < 2)
 		swap_error(stack, arr, line_number, fs);
-	if ((strcmp(opcode, "add") == 0) && list_len(stack) < 2)
+	else if ((strcmp(opcode, "add") == 0) && list_len(stack) < 2)
 		add_error(stack, arr, line_number, fs);
+	else if ((strcmp(opcode, "sub") == 0) && list_len(stack) < 2)
+		sub_error(stack, arr, line_number, fs);
 
 	return (0);
 
