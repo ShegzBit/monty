@@ -1,0 +1,14 @@
+mul
+push 1
+push 2
+push 3
+pall
+mul     
+      swap
+pall
+div
+      
+
+
+   push      4
+pall

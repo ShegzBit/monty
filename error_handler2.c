@@ -35,3 +35,13 @@ void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 	fclose(fs);
 	exit(EXIT_FAILURE);
 }
+
+void mul_error(stack_t *stack, char **arr, int line_number, FILE *fs)
+{
+	fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+	_free(arr);
+	free_list(stack);
+	fclose(fs);
+	exit(EXIT_FAILURE);
+
+}

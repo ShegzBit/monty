@@ -39,6 +39,7 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
@@ -79,5 +80,6 @@ void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void _div_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void zero_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void mul_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/

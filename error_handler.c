@@ -4,6 +4,7 @@ void pint_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void _div_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void zero_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 /**
  * pint_error - handles error on stack for pint
