@@ -32,3 +32,73 @@ char *_strdup(char *str)
 	arr[i] = '\0';
 	return (arr);
 }
+
+/**
+ * word_count - count no. of words(strings) in
+ * an array
+ * @buffer: array
+ * @delim: delimiter
+ *
+ * Return: no of args(strings)
+ */
+int word_count(char *buffer, const char *delim)
+{
+	char *buf, *token;
+	int argc;
+
+	argc = 0;
+	buf = _strdup(buffer);
+	if (!buf)
+		return (argc);
+	token = strtok(buf, delim);
+	if (token)
+		argc++;
+	while (token)
+	{
+		token = strtok(NULL, delim);
+		if (token)
+			argc++;
+	}
+	free(buf);
+	return (argc);
+}
+
+/**
+ */
+char **string_split(char *str, char *delim)
+{
+	int count = word_count(str, delim), i = 0;
+	char **arr = NULL, *new_str = NULL, *token;
+
+	if (str == NULL || delim == NULL)
+		return NULL;
+
+	arr = malloc(sizeof(char *) * (count + 1));
+	if (arr == NULL)
+		return NULL;
+
+	new_str = _strdup(str);
+	if (!new_str)
+	{
+		free(arr);
+		return NULL;
+	}
+
+	token = strtok(new_str, delim);
+	while (token != NULL && i < count)
+	{
+		arr[i] = _strdup(token);
+		if (arr[i] == NULL)
+		{
+			free_to_index(arr, i);
+			free(new_str);
+			return NULL;
+		}
+		i++;
+		token = strtok(NULL, delim);
+	}
+
+	arr[i] = NULL;
+	free(new_str); /* Free the temporary string copy */
+	return arr;
+}

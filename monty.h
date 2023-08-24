@@ -56,6 +56,11 @@ int _execute(stack_t **_stack, FILE *fs);
 func_op get_op(char *opcode);
 void free_list(stack_t *stack);
 void _free(char **arr);
+char *_strdup(char *str);
+int word_count(char *buffer, const char *delim);
+char **string_split(char *str, char *delim);
+void free_all(char **arr);
+void free_to_index(char **arr, int i);
 
 /*op-stack error handlers*/
 void pint_error(stack_t *stack, char **arr,
