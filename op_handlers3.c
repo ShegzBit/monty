@@ -18,6 +18,12 @@ void mod(stack_t **stack, unsigned int line_number)
 	(*stack)->n = store;
 }
 
+/**
+ * pchar - print the ascii representation of the element on
+ * stack
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;

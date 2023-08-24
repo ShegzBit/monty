@@ -106,6 +106,13 @@ void mod_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 	}
 }
 
+/**
+ * pchar_error - handles stack error on pchar
+ * @stack: stack to operate on
+ * @arr: arr used in other function to be freed before exit
+ * @line_number: line on which the error was found
+ * @fs: monty byte code file where opcodes were read from
+ */
 void pchar_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {
 	if (stack == NULL)

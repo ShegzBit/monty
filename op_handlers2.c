@@ -95,19 +95,3 @@ void mul(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 	(*stack)->n = mul;
 }
-
-/**
- * mod - computes the rest of the division of the second top
- * element of the stack by the top element of the stack.
- * @stack: stack to work with
- * @line_number: line number of file being executed
- */
-void mod(stack_t **stack, unsigned int line_number)
-{
-	int store;
-	(void)line_number;
-
-	store = (*stack)->next->n % (*stack)->n;
-	pop(stack, line_number);
-	(*stack)->n = store;
-}
