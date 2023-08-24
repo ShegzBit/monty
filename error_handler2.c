@@ -61,6 +61,7 @@ void sub_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 	fclose(fs);
 	exit(EXIT_FAILURE);
 }
+
 /**
  * mul_error - handles stack error on mul if
  * stack too short

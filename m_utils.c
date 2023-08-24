@@ -109,7 +109,10 @@ int _execute(stack_t **_stack, FILE *fs)
 			continue;
 		/*Extern int data in .h file*/
 		if (handle_comment(arr[0]))
+		{
+			free_all(arr);
 			continue;
+		}
 		stack_error(*_stack, arr[0], arr, i, fs);
 		op_handler = get_op(arr[0]);
 		if (op_handler == NULL)
