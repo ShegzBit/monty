@@ -11,7 +11,7 @@ void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
  */
 void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {
-	fprintf(stderr, "L<%d>: can't pop, an empty stack\n", line_number);
+	fprintf(stderr, "L%d: can't pop, an empty stack\n", line_number);
 	_free(arr);
 	free_list(stack);
 	fclose(fs);
