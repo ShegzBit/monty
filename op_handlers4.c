@@ -10,21 +10,13 @@ void pstr(stack_t **stack, unsigned int line_number);
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-	int flag = 0;
 	stack_t *ptr = *stack;
 	(void)line_number;
 
-	if ((*stack) == NULL)
-	{
-		printf("\n");
-		return;
-	}
 	while ((ptr->n > 0 && ptr->n < 128) && ptr)
 	{
-		flag = 1;
 		printf("%c", ptr->n);
 		ptr = ptr->next;
 	}
-	if (flag)
-		printf("\n");
+	printf("\n");
 }
