@@ -77,6 +77,7 @@ void mul_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 	free_list(stack);
 	fclose(fs);
 	exit(EXIT_FAILURE);
+}
 
 /**
  * mod_error - handles stack error on mod

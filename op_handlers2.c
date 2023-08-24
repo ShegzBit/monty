@@ -95,6 +95,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	*stack = temp;
 	pop(stack, line_number);
 	(*stack)->n = mul;
+}
 /**
  * mod - computes the rest of the division of the second top
  * element of the stack by the top element of the stack.
