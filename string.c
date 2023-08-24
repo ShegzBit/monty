@@ -1,6 +1,5 @@
 #include "monty.h"
 
-char *_strdup(char *str);
 /* contains helper string functions */
 char *_strdup(char *str);
 int word_count(char *buffer, const char *delim);

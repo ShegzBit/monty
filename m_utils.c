@@ -80,13 +80,16 @@ int _execute(stack_t **_stack, FILE *fs)
 	size_t i = 1, count;
 	char lineptr[BUFFER_SIZE], **arr;
 	func_op op_handler;
+	char *delim = " \n\t\b";
 
 	while (fgets(lineptr, sizeof(lineptr), fs) != NULL)
 	{
-		count = word_count(lineptr, " \t\n");
-		arr = string_split(lineptr, " \t\n");
+		count = word_count(lineptr, delim);
+		if (count == 0)
+			continue;
+		arr = _string_split(lineptr, delim);
 		if (!arr)
-			break;
+			continue;
 		/*Extern int data in .h file*/
 		stack_error(*_stack, arr[0], arr, i, fs);
 		op_handler = get_op(arr[0]);

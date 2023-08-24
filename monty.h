@@ -62,6 +62,7 @@ int list_len(stack_t *stack);
 char *_strdup(char *str);
 int word_count(char *buffer, const char *delim);
 char **string_split(char *str, char *delim);
+char **_string_split(char *str, char *delim);
 void free_all(char **arr);
 void free_to_index(char **arr, int i);
 
