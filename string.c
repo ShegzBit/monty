@@ -94,12 +94,10 @@ char **string_split(char *str, char *delim)
 		return (NULL);
 	}
 
-	printf("__%d words\n", count);
 	token = strtok(new_str, delim);
 	while (token != NULL && i < count)
 	{
 		arr[i] = _strdup(token);
-		printf(">>%s\n", arr[i]);
 		if (arr[i] == NULL)
 		{
 			free_to_index(arr, i);
