@@ -1,5 +1,6 @@
 #include "monty.h"
 
+<<<<<<< HEAD
 void pint_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
@@ -10,6 +11,15 @@ void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
  * @arr: arr used in other function to be freed before exit
  * @line_number: line on which the error was found
  * @fs: monty byte code file where opcodes were read from
+=======
+/**
+ * pint_error - prints the value at the top of the stack,
+ * followed by a new line.
+ * @stack: stack (double linked list)
+ * @arr: array containing opcode command and instruction
+ * @line_number: line number where error occurred
+ * @fs: file stream of bytecode from which instructions are read
+>>>>>>> main
  */
 void pint_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 {

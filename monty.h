@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 1024 * 10
 
 /*External variable for data*/
 extern int data;
@@ -59,6 +59,11 @@ func_op get_op(char *opcode);
 void free_list(stack_t *stack);
 void _free(char **arr);
 int list_len(stack_t *stack);
+char *_strdup(char *str);
+int word_count(char *buffer, const char *delim);
+char **string_split(char *str, char *delim);
+void free_all(char **arr);
+void free_to_index(char **arr, int i);
 
 /*op-stack error handlers*/
 void pint_error(stack_t *stack, char **arr,int line_number, FILE *fs);

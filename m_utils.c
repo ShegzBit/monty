@@ -1,7 +1,5 @@
 #include "monty.h"
 
-char *_strdup(char *str);
-
 /*Contains utility functions for efficient and sufficient use of opfuncs*/
 
 int _execute(stack_t **_stack, FILE *fs);
@@ -107,28 +105,30 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
  */
 int _execute(stack_t **_stack, FILE *fs)
 {
-	size_t i = 1, word_count;
+	size_t i = 1, count;
 	char lineptr[BUFFER_SIZE], **arr;
 	func_op op_handler;
 
 	while (fgets(lineptr, sizeof(lineptr), fs) != NULL)
 	{
-		word_count = count_word(lineptr);
-		arr = split_string(lineptr, " \n");
+		count = word_count(lineptr, " \n");
+		arr = string_split(lineptr, " \n");
+		if (!arr)
+			break;
 		/*Extern int data in .h file*/
 		stack_error(*_stack, arr[0], arr, i, fs);
 		op_handler = get_op(arr[0]);
 		if (op_handler == NULL)
 		{
 			fprintf(stderr, "L<%ld>: unknown instruction <%s>\n", i, arr[0]);
-			_free(arr);
+			free_all(arr);
 			return (-1);
 		}
 		/*Extern int data in .h file*/
-		if (word_count >= 2)
+		if (count >= 2)
 			data = atoi(arr[1]);
 		op_handler(_stack, i++);
-		_free(arr);
+		free_all(arr);
 	}
 	return (0);
 }
