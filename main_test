@@ -1,0 +1,27 @@
+push 1
+push 2
+push 3
+pall
+pint
+pop
+pop
+pop
+pint
+push 1
+push 2
+push 3
+swap
+pall
+pop
+pop
+pop
+swap
+push 1
+push 2
+push 3
+add
+pall
+pop
+pop
+add
+
