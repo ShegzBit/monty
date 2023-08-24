@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 1024 * 10
 
 /*External variable for data*/
 extern int data;
