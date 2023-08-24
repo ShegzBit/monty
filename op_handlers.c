@@ -4,6 +4,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 /**
  * push - pushes an element unto a stack
@@ -74,4 +75,19 @@ void swap(stack_t **stack, unsigned int line_number)
 	temp->n = (*stack)->n;
 	(*stack)->n = store;
 	*stack = temp;
+}
+
+/**
+ * add - adds the value of the top and second element on
+ * the stack pop the first and assign the sum to the second
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	int store;
+
+	store = (*stack)->n + (*stack)->next->n;
+	pop(stack, line_number);
+	(*stack)->n = store;
 }

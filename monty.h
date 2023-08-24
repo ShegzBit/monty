@@ -35,6 +35,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 /**
  * struct instruction_s - opcode and its function
@@ -65,5 +66,6 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs);
 void pop_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 void swap_error(stack_t *stack, char **arr, int line_number, FILE *fs);
+void add_error(stack_t *stack, char **arr, int line_number, FILE *fs);
 
 #endif /*_MONTY_H_*/

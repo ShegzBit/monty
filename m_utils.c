@@ -46,19 +46,19 @@ int count_word(char *str)
 char **split_string(char *str, char *delim)
 {
 	int word_count = count_word(str), i = 0;
-	char **arr, *new_str;
+	char **arr, *temp;
 
 	if (str == NULL || delim == NULL)
 		return (NULL);
 
-	arr = malloc(sizeof(char *) * word_count);
+	arr = malloc(sizeof(char *) * (word_count + 1));
 	if (arr == NULL)
 		return (NULL);
 
-	new_str = _strdup(str);
-	arr[i++] = strtok(new_str, delim);
+	arr[i++] = _strdup(strtok(str, delim));
 	while (i < word_count && arr[i - 1] != NULL)
-		arr[i++] = strtok(NULL, delim);
+		arr[i++] = _strdup(strtok(NULL, delim));
+	arr[i] = NULL;
 	return (arr);
 }
 
@@ -68,7 +68,10 @@ char **split_string(char *str, char *delim)
  */
 void _free(char **arr)
 {
-	free(*arr);
+	unsigned int i;
+
+	for (i = 0; arr[i]; i++)
+		free(arr[i]);
 	free(arr);
 }
 
@@ -84,12 +87,14 @@ void _free(char **arr)
 int stack_error(stack_t *stack, char *opcode, char **arr,
 		int line_number, FILE *fs)
 {
-	if ((strcmp(opcode, "pint") == 0) && list_len(stack) == 0)
+	if ((strcmp(opcode, "pint") == 0) && stack == NULL)
 		pint_error(stack, arr, line_number, fs);
-	if ((strcmp(opcode, "pop") == 0) && list_len(stack) == 0)
+	if ((strcmp(opcode, "pop") == 0) && stack == NULL)
 		pop_error(stack, arr, line_number, fs);
 	if ((strcmp(opcode, "swap") == 0) && list_len(stack) < 2)
 		swap_error(stack, arr, line_number, fs);
+	if ((strcmp(opcode, "add") == 0) && list_len(stack) < 2)
+		add_error(stack, arr, line_number, fs);
 
 	return (0);
 
