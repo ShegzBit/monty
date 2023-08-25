@@ -119,7 +119,9 @@ int _execute(stack_t **_stack, FILE *fs)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", i, arr[0]);
 			free_all(arr);
-			return (-1);
+			free_list(stack);
+			fclose(fs);
+			exit(EXIT_FAILURE);
 		}
 		/*Extern int data in .h file*/
 		if (count >= 2)
