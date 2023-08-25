@@ -1,6 +1,7 @@
 #include "monty.h"
 
 void pstr(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 
 /**
  * pstr - prints the string starting at the top of the
@@ -25,4 +26,28 @@ void pstr(stack_t **stack, unsigned int line_number)
 		printf("%c", ptr->n);
 	}
 	printf("\n");
+}
+
+/**
+ * rotr - rotates the stack to the bottom.
+ * stack, followed by a new line.
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	(void)line_number;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return;
+
+	while (ptr->next)
+		ptr = ptr->next;
+
+	ptr->next = *stack;
+	(*stack)->prev = ptr;
+	ptr->prev->next = NULL;
+	ptr->prev = NULL;
+	*stack = ptr;
 }
