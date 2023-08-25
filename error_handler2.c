@@ -123,7 +123,7 @@ void pchar_error(stack_t *stack, char **arr, int line_number, FILE *fs)
 		fclose(fs);
 		exit(EXIT_FAILURE);
 	}
-	else if (stack->n > 127)
+	else if (stack->n > 255)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		_free(arr);
