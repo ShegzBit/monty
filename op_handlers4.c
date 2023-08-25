@@ -2,6 +2,7 @@
 
 void pstr(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
 
 /**
  * pstr - prints the string starting at the top of the
@@ -50,4 +51,16 @@ void rotr(stack_t **stack, unsigned int line_number)
 	ptr->prev->next = NULL;
 	ptr->prev = NULL;
 	*stack = ptr;
+}
+
+/**
+ * stack - sets the format of the data to a stack (LIFO) by doing nothing
+ * default format is already stack
+ * @stack: stack
+ * @line_number: line number of pop instruction
+ */
+void stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }

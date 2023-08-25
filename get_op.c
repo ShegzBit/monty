@@ -25,6 +25,7 @@ func_op get_op(char *opcode)
 		{"mod", mod},
 		{"pstr", pstr},
 		{"rotr", rotr},
+		{"stack", stack},
 		{NULL, NULL}
 	};
 	int i;

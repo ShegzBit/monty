@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024 * 10
+#define BUFFER_SIZE (1024 * 10)
 
 /*External variable for data*/
 extern int data;
@@ -21,9 +21,9 @@ extern int data;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /*Type definitions*/
@@ -45,6 +45,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -55,8 +57,8 @@ void rotr(stack_t **stack, unsigned int line_number);
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        func_op opfunc;
+	char *opcode;
+	func_op opfunc;
 } instruction_t;
 
 /*Utility functions*/
