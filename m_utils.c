@@ -119,7 +119,7 @@ int _execute(stack_t **_stack, FILE *fs)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", i, arr[0]);
 			free_all(arr);
-			free_list(*stack);
+			free_list(*_stack);
 			fclose(fs);
 			exit(EXIT_FAILURE);
 		}
