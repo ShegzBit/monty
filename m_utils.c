@@ -94,13 +94,14 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
  */
 int _execute(stack_t **_stack, FILE *fs)
 {
-	int i = 1, count;
+	int i = 0, count;
 	char lineptr[BUFFER_SIZE], **arr;
 	func_op op_handler;
 	char *delim = " \n\t\b";
 
 	while (fgets(lineptr, sizeof(lineptr), fs) != NULL)
 	{
+		i++;
 		count = word_count(lineptr, delim);
 		if (count == 0)
 			continue;
@@ -126,7 +127,7 @@ int _execute(stack_t **_stack, FILE *fs)
 		/*Extern int data in .h file*/
 		if (count >= 2)
 			data = atoi(arr[1]);
-		op_handler(_stack, i++);
+		op_handler(_stack, i);
 		free_all(arr);
 	}
 	return (0);
