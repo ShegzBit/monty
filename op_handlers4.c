@@ -55,7 +55,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 
 /**
  * stack - sets the format of the data to a stack (LIFO) by doing nothing
- * default format is already stack
+ * default format is already stack (LIFO)
  * @stack: stack
  * @line_number: line number of pop instruction
  */
@@ -63,4 +63,44 @@ void stack(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+	is_queue = 0;
+}
+
+/**
+ * queue - sets the format of the data to a stack (FIFO) by setting
+ * is_queue to 1 which in turn determines how elements are pushed
+ * on the stack
+ * new format queue (FIFO)
+ * @stack: stack
+ * @line_number: line number of pop instruction
+ */
+void queue(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	is_queue = 1;
+}
+/**
+ * queue_push - a typical queue push implementation
+ * @stack: stack
+ * @line_number: line number of pop instruction
+ */
+void queue_push(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp, *store = *stack;
+
+	if (*stack == NULL)
+	{
+		push(stack, line_number);
+		return;
+	}
+
+	temp = malloc(sizeof(stack_t));
+	temp->n = data;
+	for (; (*stack)->next != NULL; (*stack) = (*stack)->next)
+		;
+	(*stack)->next = temp;
+	temp->prev = *stack;
+	temp->next = NULL;
+	*stack = store;
 }

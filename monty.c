@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int data = 0;
+int data = 0, is_queue = 0;
 
 /**
  * main - calls all functions and execute interpreter

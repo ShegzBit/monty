@@ -18,7 +18,7 @@ func_op get_op(char *opcode)
 		{"swap", swap},
 		{"pint", pint},
 		{"pall", pall},
-		{"push", push},
+		{"push", pick_push},
 		{"pop", pop},
 		{"nop", nop},
 		{"sub", sub},
@@ -26,6 +26,7 @@ func_op get_op(char *opcode)
 		{"pstr", pstr},
 		{"rotr", rotr},
 		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	int i;
