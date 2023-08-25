@@ -28,6 +28,8 @@ int is_int(char *str)
 
 	if (str == NULL)
 		return (0);
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
