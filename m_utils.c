@@ -117,7 +117,7 @@ int _execute(stack_t **_stack, FILE *fs)
 		op_handler = get_op(arr[0]);
 		if (op_handler == NULL)
 		{
-			fprintf(stderr, "L%ld: unknown instruction %s\n", i, arr[0]);
+			fprintf(stderr, "L%d: unknown instruction %s\n", i, arr[0]);
 			free_all(arr);
 			return (-1);
 		}
