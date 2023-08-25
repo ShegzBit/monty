@@ -7,4 +7,4 @@ push 70
 push 71
 push 72
 rotl
-pstr
+pall
