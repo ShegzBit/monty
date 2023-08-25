@@ -94,7 +94,7 @@ int stack_error(stack_t *stack, char *opcode, char **arr,
  */
 int _execute(stack_t **_stack, FILE *fs)
 {
-	size_t i = 1, count;
+	int i = 1, count;
 	char lineptr[BUFFER_SIZE], **arr;
 	func_op op_handler;
 	char *delim = " \n\t\b";
