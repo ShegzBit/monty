@@ -23,6 +23,7 @@ func_op get_op(char *opcode)
 		{"nop", nop},
 		{"sub", sub},
 		{"mod", mod},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i;
