@@ -1,0 +1,63 @@
+gcc -g3 -O0 -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+
+clear
+
+valgrind -s ./monty test_1
+echo \\n
+sleep 5
+
+valgrind -s ./monty test_2
+echo \\n
+sleep 5
+
+valgrind -s ./monty test_3
+echo \\n
+sleep 5
+
+valgrind -s ./monty test4
+echo \\n
+sleep 5
+
+valgrind -s ./monty test5
+echo \\n
+sleep 5
+
+valgrind -s ./monty test6
+echo \\n
+sleep 5
+
+valgrind -s ./monty test7
+echo \\n
+sleep 5
+
+valgrind -s ./monty test8
+echo \\n
+sleep 5
+
+valgrind -s ./monty test9
+echo \\n
+sleep 5
+
+valgrind -s ./monty test10
+echo \\n
+sleep 5
+
+valgrind -s ./monty test11
+echo \\n
+sleep 5
+
+valgrind -s ./monty test12
+echo \\n
+sleep 5
+
+valgrind -s ./monty test13
+echo \\n
+sleep 5
+
+valgrind -s ./monty test14
+echo \\n
+sleep 5
+
+valgrind -s ./monty test15
+echo \\n
+sleep 5

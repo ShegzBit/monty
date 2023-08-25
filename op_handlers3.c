@@ -1,6 +1,8 @@
 #include "monty.h"
 
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
 
 /**
  * mod - computes the rest of the division of the second top
@@ -28,4 +30,26 @@ void pchar(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	printf("%c\n", (char)(*stack)->n);
+}
+
+/**
+ * rotl - pushes the first element of a stack to the
+ * end
+ * @stack: stack to work with
+ * @line_number: line number of file being executed
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack, *store;
+
+	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	store = (*stack)->next;
+	for (; (*stack)->next != NULL; (*stack) = (*stack)->next)
+		;
+	(*stack)->next = temp;
+	temp->prev = *stack;
+	temp->next = NULL;
+	*stack = store;
 }

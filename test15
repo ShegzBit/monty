@@ -1,0 +1,10 @@
+push 65
+push 66
+push 67
+push 68
+push 69
+push 70
+push 71
+push 72
+rotl
+pstr
